@@ -1,0 +1,25 @@
+-------------------generate unit test--------------------
+java -classpath E:\Randoop\randoop-all-4.0.4.jar;E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar;E:\Project\MatrixProject\out1 -Xmx3000m randoop.main.Main gentests --classlist=classlist.txt --output-limit=5
+
+
+
+javac -d ..\out1\ -classpath E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar nhanmatran\*.java
+
+java -classpath E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar;. nhanmatran.Main
+
+
+----------run unit test by cmd-------------------
+java -cp .;E:\Project\junit-4.10.jar\junit-4.10.jar;..\out1;E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar org.junit.runner.JUnitCore nhanmatran.NhanMaTran
+
+java -cp .;E:\Project\junit-4.10.jar\junit-4.10.jar;..\out1;E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar;..\randoop\ org.junit.runner.JUnitCore RegressionTest
+
+
+javac -classpath E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar;E:\Project\junit-4.10.jar\junit-4.10.jar;..\out1
+
+------build unit test by junit5----------------
+javac -cp E:\Project\junit5\junit-platform-console-standalone-1.3.1.jar;E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar;..\out1 *.java
+
+--------run by junit5
+java -jar E:\Project\junit5\junit-platform-console-standalone-1.3.1.jar --class-path ..\out1;E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar;..\randoop\ --scan-class-path RegressionTest
+
+===============================

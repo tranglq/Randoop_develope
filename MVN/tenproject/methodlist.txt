@@ -1,0 +1,3 @@
+trang.MyMatrix()
+trang.MyMatrix(int,int,double)
+trang.MyMatrix.addab(int,int)

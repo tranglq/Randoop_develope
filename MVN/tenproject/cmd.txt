@@ -1,0 +1,7 @@
+============gen unit test======
+
+java -classpath E:\Randoop\randoop-all-4.0.4.jar;E:\Project\commons-math3-3.6.1\commons-math3-3.6.1.jar;E:\Project\MVN\tenproject\target\classes\ -Xmx3000m randoop.main.Main gentests --classlist=classlist.txt --output-limit=50 --literals-file=value.txt --literals-level=PACKAGE --clear=0
+ 
+
+
+mvn org.codehaus.mojo:exec-maven-plugin:1.6.0:exec
