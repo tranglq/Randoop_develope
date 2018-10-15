@@ -6,18 +6,22 @@ import java.util.List;
 public class Package  {
 	private String packagename;
 	private String classname;
-	private List<Method> methodlist = new ArrayList<>();
+	private String methodname;
+	private String typename;
+	private List<String> values = new ArrayList<>();
 	
 	public Package() {
 		
 	}
 	
-	public Package(String packagename, String classname, List<Method> methodnamelist) {
+	public Package(String packagename, String classname, String methodname, String typename, List<String> values) {
 		this.packagename = packagename;
-		this.classname = classname; 
-		this.methodlist = methodnamelist;
-		
+		this.classname = classname;
+		this.methodname = methodname;
+		this.typename = typename;
+		this.values = values;		
 	}
+	
 	
 	public void setPackage(String packagename) {
 		this.packagename = packagename;
@@ -35,21 +39,27 @@ public class Package  {
 		return this.classname;
 	}
 	
-	public void setAMethod(Method methodname) {
-		this.methodlist.add(methodname);
+	public void setMethod(String methodname) {
+		this.methodname = methodname;
 	}
 	
-	public Method getAMethod(int index) {
-		return this.methodlist.get(index);
+	public String getMethod() {
+		return this.methodname;
 	}
 	
-	public List<Method> getMethodList(){
-		return this.methodlist;
+	public void setTypeName(String typename) {
+		this.typename = typename;
 	}
 	
-	public boolean methodlistIsNull() {
-		if(methodlist.get(0) == null) return true;
-		else return false;
+	public String getTypeName() {
+		return this.typename;
 	}
 	
+	public String getValueList(int index) {
+		return this.values.get(index);
+	}
+	
+	public void setValue(String value) {
+		this.values.add(value);
+	}
 }

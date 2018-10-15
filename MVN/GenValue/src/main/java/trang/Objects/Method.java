@@ -1,13 +1,14 @@
 package trang.Objects;
 
+import trang.Objects.TypeValues;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Method {
 	private String methodname;
-	private List<String> typeslist = new ArrayList<>();
+	private List<TypeValues> typeslist = new ArrayList<>();
 	
-	public Method(String methodname, List<String> values) {
+	public Method(String methodname, List<TypeValues> values) {
 		this.methodname = methodname;
 		this.typeslist = values;
 	}
@@ -20,11 +21,11 @@ public class Method {
 		return this.methodname;
 	}
 	
-	public void setAType(String typename) {
+	public void setAType(TypeValues typename) {
 		this.typeslist.add(typename);
 	}
 	
-	public String getAtype(int index) {
+	public TypeValues getAtype(int index) {
 		return this.typeslist.get(index);
 	}
 }
