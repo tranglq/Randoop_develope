@@ -30,7 +30,7 @@ public class ReadValue {
 		
 	}
 	
-	public void ReadPackage(FileDescription filedes) throws IOException {
+	public List<Package> ReadPackage(FileDescription filedes) throws IOException {
 		List<Package> packlist = new ArrayList<>();
 		if(CheckFile(filedes)) {
 			FileInputStream input = new FileInputStream(new File(filedes.getFileDest()+filedes.getFileName()));
@@ -80,13 +80,15 @@ public class ReadValue {
 						case 10:
 							pack.setValue(value);
 						}
+						
+					packlist.add(pack);
 										
 					}
 				}
 			}
 		}
 		
-		
+		return packlist;
 	}
 	
 }
