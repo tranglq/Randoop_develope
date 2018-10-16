@@ -12,13 +12,14 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import trang.FileDescription;
 import trang.Objects.Package;
 
 public class ReadValue {
 	
-	private HSSFWorkbook workbook;
+	private XSSFWorkbook  workbook;
 	private CellType celltype;
 	private Package pack = new Package();
 
@@ -42,7 +43,7 @@ public class ReadValue {
 		List<Package> packlist = new ArrayList<>();
 		if(CheckFile(filedes)) {
 			FileInputStream input = new FileInputStream(new File(filedes.getFileDest()+filedes.getFileName()));
-			workbook = new HSSFWorkbook(input);
+			workbook = new XSSFWorkbook (input);
 			HSSFSheet sheet = workbook.getSheetAt(0);
 			
 			Iterator<Row> rowiterator = sheet.iterator();
