@@ -62,4 +62,8 @@ public class Package  {
 	public void setValue(String value) {
 		this.values.add(value);
 	}
+	
+	public List<String> getValues(){
+		return this.values;
+	}
 }

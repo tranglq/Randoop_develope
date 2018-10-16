@@ -18,6 +18,11 @@ import trang.FileDescription;
 import trang.Objects.Package;
 
 public class ReadValue {
+	
+	public ReadValue() {
+		
+	}
+	
 	public boolean CheckFile(FileDescription filedes) {
 		File fo = new File(filedes.getFileDest());
 		
@@ -30,7 +35,7 @@ public class ReadValue {
 		
 	}
 	
-	public List<Package> ReadPackage(FileDescription filedes) throws IOException {
+	public List<Package> readPackage(FileDescription filedes) throws IOException {
 		List<Package> packlist = new ArrayList<>();
 		if(CheckFile(filedes)) {
 			FileInputStream input = new FileInputStream(new File(filedes.getFileDest()+filedes.getFileName()));
