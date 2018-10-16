@@ -2,7 +2,6 @@ package trang;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,6 +18,10 @@ import trang.Objects.Package;
 
 public class ReadValue {
 	
+	private HSSFWorkbook workbook;
+	private CellType celltype;
+	private Package pack = new Package();
+
 	public ReadValue() {
 		
 	}
@@ -39,7 +42,7 @@ public class ReadValue {
 		List<Package> packlist = new ArrayList<>();
 		if(CheckFile(filedes)) {
 			FileInputStream input = new FileInputStream(new File(filedes.getFileDest()+filedes.getFileName()));
-			HSSFWorkbook workbook = new HSSFWorkbook(input);
+			workbook = new HSSFWorkbook(input);
 			HSSFSheet sheet = workbook.getSheetAt(0);
 			
 			Iterator<Row> rowiterator = sheet.iterator();
@@ -51,7 +54,7 @@ public class ReadValue {
 				while(celliterator.hasNext()) {
 					Cell cell = celliterator.next();
 					
-					CellType celltype = cell.getCellType();
+					celltype = cell.getCellType();
 					
 					switch (celltype) {
 					case _NONE:
@@ -59,8 +62,6 @@ public class ReadValue {
 					case STRING:
 						String value = cell.getStringCellValue();
 						int indexcol = cell.getColumnIndex();
-						int indexrow = cell.getRowIndex();
-						Package pack = null;
 						switch (indexcol) {
 						case 0:
 							pack.setPackage(value);
@@ -87,6 +88,8 @@ public class ReadValue {
 						}
 						
 					packlist.add(pack);
+					default:
+						break;
 										
 					}
 				}

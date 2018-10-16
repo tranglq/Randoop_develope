@@ -1,7 +1,5 @@
 package trang;
 
-import java.io.DataOutputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -11,17 +9,22 @@ import trang.Objects.KeyWordInValue;
 import trang.Objects.Package;
 
 
-public class GenMethod {
-	public void GenMethod() throws FileNotFoundException {
-		FileDescription filedes = new FileDescription();
-		filedes.setFileDest("E:\\Project\\MVN\\GenValue\\");
-		filedes.setFileName("methodlist.txt");
-		String linkfile = filedes.getFileDest() + filedes.getFileName();
-		FileOutputStream fileos = new FileOutputStream(linkfile);
-		DataOutputStream dataos = new DataOutputStream(fileos);
-		
+public class GenFile {
+	private ObjectOutputStream writeob;
+	public GenFile() {
 		
 	}
+//	
+//	public void GenMethod() throws FileNotFoundException {
+//		FileDescription filedes = new FileDescription();
+//		filedes.setFileDest("E:\\Project\\MVN\\GenValue\\");
+//		filedes.setFileName("methodlist.txt");
+//		String linkfile = filedes.getFileDest() + filedes.getFileName();
+//		FileOutputStream fileos = new FileOutputStream(linkfile);
+//		DataOutputStream dataos = new DataOutputStream(fileos);
+//		
+//		
+//	}
 	
 	public void GenValue() throws IOException {
 		FileDescription filesource = new FileDescription();
@@ -37,12 +40,10 @@ public class GenMethod {
 		String linkfile = filedes.getFileDest() + filedes.getFileName();
 		
 		FileOutputStream fileos = new FileOutputStream(linkfile);
-		ObjectOutputStream writeob = new ObjectOutputStream(fileos);
+		writeob = new ObjectOutputStream(fileos);
 		
 		KeyWordInValue keyword = new KeyWordInValue();
 		
-		Package pack = new Package();
-		pack = packlist.get(0);
 		int i = 0;
 		while(!packlist.isEmpty()) {
 			//In ra các từ khóa và tên package.class khi đây là package đầu tiên

@@ -1,13 +1,13 @@
 package trang;
 
-/**
- * Hello world!
- *
- */
+import java.io.IOException;
+import trang.GenFile;
+
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
-        System.out.println( "Hello World!" );
+       GenFile genfile = new GenFile();
+       genfile.GenValue();
     }
 }
